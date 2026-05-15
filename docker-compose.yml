@@ -6,11 +6,9 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - AWS_REGION=ap-south-1
-      - S3_BUCKET=resume-scoring-app-bucket
-      - BEDROCK_MODEL_ID=anthropic.claude-3-5-sonnet-20240620-v1:0
-      - CORS_ORIGINS=http://localhost:3000
       - LOG_LEVEL=INFO
+    env_file:
+      - ./backend/.env
     volumes:
       - ~/.aws:/root/.aws:ro
 
