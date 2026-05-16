@@ -47,7 +47,7 @@ Automated resume scoring and ranking system that evaluates candidates against jo
 # Clone and start both services
 docker-compose up --build
 
-# Frontend: http://localhost:3000
+# Frontend: http://frontend-service:3000
 # Backend:  http://backend-service:8000
 # API docs: http://backend-service:8000/docs
 ```
@@ -152,7 +152,7 @@ All config is via environment variables:
 | `THRESHOLD_REJECT` | `60` | Score below = reject |
 | `THRESHOLD_SHORTLIST` | `80` | Score above = strong match |
 | `LLM_MAX_RETRIES` | `2` | LLM retry attempts |
-| `CORS_ORIGINS` | `http://localhost:3000` | Allowed CORS origins |
+| `CORS_ORIGINS` | `http://frontend-service:3000` | Allowed CORS origins |
 | `BACKEND_URL` | `http://backend-service:8000` | Backend URL (for frontend proxy) |
 
 ## Project Structure

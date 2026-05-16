@@ -56,7 +56,7 @@ class AppConfig:
     log_level: str = os.getenv("LOG_LEVEL", "INFO")
     cors_origins: list = field(
         default_factory=lambda: os.getenv(
-            "CORS_ORIGINS", "http://localhost:3000"
+            "CORS_ORIGINS", "http://frontend-service:3000"
         ).split(",")
     )
 
