@@ -55,9 +55,7 @@ class AppConfig:
     llm_max_retries: int = int(os.getenv("LLM_MAX_RETRIES", "2"))
     log_level: str = os.getenv("LOG_LEVEL", "INFO")
     cors_origins: list = field(
-        default_factory=lambda: os.getenv(
-            "CORS_ORIGINS", "http://frontend-service:3000"
-        ).split(",")
+        default_factory=lambda: os.getenv("CORS_ORIGINS", "http://frontend-service:3000").split(",")
     )
 
 
