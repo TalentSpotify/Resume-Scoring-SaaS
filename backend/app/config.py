@@ -12,7 +12,7 @@ class AWSConfig:
     region: str = os.getenv("AWS_REGION", "ap-south-1")
     s3_bucket: str = os.getenv("S3_BUCKET", "resume-scoring-app-bucket")
     bedrock_model_id: str = os.getenv(
-        "BEDROCK_MODEL_ID", "anthropic.claude-3-5-sonnet-20240620-v1:0"
+        "BEDROCK_MODEL_ID", "us.anthropic.claude-3-5-sonnet-20240620-v1:0"
     )
     s3_upload_prefix: str = os.getenv("S3_UPLOAD_PREFIX", "uploads")
     s3_results_prefix: str = os.getenv("S3_RESULTS_PREFIX", "results")
