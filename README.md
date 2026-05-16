@@ -48,8 +48,8 @@ Automated resume scoring and ranking system that evaluates candidates against jo
 docker-compose up --build
 
 # Frontend: http://localhost:3000
-# Backend:  http://localhost:8000
-# API docs: http://localhost:8000/docs
+# Backend:  http://backend-service:8000
+# API docs: http://backend-service:8000/docs
 ```
 
 AWS credentials are mounted from `~/.aws`. Set env vars in `docker-compose.yml` for custom config.
@@ -153,7 +153,7 @@ All config is via environment variables:
 | `THRESHOLD_SHORTLIST` | `80` | Score above = strong match |
 | `LLM_MAX_RETRIES` | `2` | LLM retry attempts |
 | `CORS_ORIGINS` | `http://localhost:3000` | Allowed CORS origins |
-| `BACKEND_URL` | `http://localhost:8000` | Backend URL (for frontend proxy) |
+| `BACKEND_URL` | `http://backend-service:8000` | Backend URL (for frontend proxy) |
 
 ## Project Structure
 
