@@ -9,7 +9,7 @@ import json
 import logging
 from typing import Any
 
-from langchain_aws import ChatBedrock
+from langchain_aws import ChatBedrockConverse
 from langchain_core.messages import HumanMessage, SystemMessage
 from langchain_core.prompts import ChatPromptTemplate
 
@@ -20,14 +20,23 @@ logger = logging.getLogger(__name__)
 
 # ── Bedrock Client ───────────────────────────────────────────────────────────
 
-_bedrock_llm: ChatBedrock | None = None
+_bedrock_llm: ChatBedrockConverse | None = None
 
 
-def get_bedrock_llm() -> ChatBedrock:
+def get_bedrock_llm() -> ChatBedrockConverse:
     global _bedrock_llm
+
     if _bedrock_llm is None:
+        print("AWS REGION:", config.aws.region)
         print("USING BEDROCK MODEL:", config.aws.bedrock_model_id)
-        _bedrock_llm = ChatBedrock(model_id=config.aws.bedrock_model_id, region_name=config.aws.region, model_kwargs={"max_tokens": 4096, "temperature": 0},)
+
+        _bedrock_llm = ChatBedrockConverse(
+            model=config.aws.bedrock_model_id,
+            region_name=config.aws.region,
+            temperature=0,
+            max_tokens=4096,
+        )
+
     return _bedrock_llm
 
 
