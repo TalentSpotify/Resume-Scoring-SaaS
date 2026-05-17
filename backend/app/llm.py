@@ -26,11 +26,8 @@ _bedrock_llm: ChatBedrock | None = None
 def get_bedrock_llm() -> ChatBedrock:
     global _bedrock_llm
     if _bedrock_llm is None:
-        _bedrock_llm = ChatBedrock(
-            model_id=config.aws.bedrock_model_id,
-            region_name=config.aws.region,
-            model_kwargs={"max_tokens": 4096, "temperature": 0},
-        )
+        print("USING BEDROCK MODEL:", config.aws.bedrock_model_id)
+        _bedrock_llm = ChatBedrock(model_id=config.aws.bedrock_model_id, region_name=config.aws.region, model_kwargs={"max_tokens": 4096, "temperature": 0},)
     return _bedrock_llm
 
 
